@@ -8,7 +8,7 @@ const accountRouter = require("./routes/account.js")
 app.use(express.json())
 
 app.use("/api/v1/user",userRouter)
-
+app.use("/api/v1/account",accountRouter)
 // app.use("")
 app.listen(3000,() => {
     console.log("Server connected")
