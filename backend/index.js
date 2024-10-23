@@ -1,16 +1,20 @@
 const express = require("express");
-
 const app = express();
-const {User} = require("./database/db")
-const userRouter = require("./routes/user.js")
-const accountRouter = require("./routes/account.js")
+const cors = require("cors")
+const userRoute = require("./routes/user")
+const accountRoute = require("./routes/account")
+
+
 
 app.use(express.json())
 
-app.use("/api/v1/user",userRouter)
-app.use("/api/v1/account",accountRouter)
-// app.use("")
-app.listen(3000,() => {
-    console.log("Server connected")
-})
+app.use(cors())
 
+
+app.use("/api/v1",userRoute)
+app.use("/api/v1",accountRoute)
+
+
+app.listen(3000,() => {
+    console.log("Listening")
+})

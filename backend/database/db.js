@@ -1,29 +1,44 @@
 const mongoose = require("mongoose");
-mongoose.connect("mongodb+srv://arunprasath41d:arun@cluster0.0h2wc.mongodb.net/moonPay").then(() =>{
+
+
+// Mongo URL
+
+mongoose.connect("mongodb+srv://arunprasath41d:fullstackdevelopment@cluster0.jpjuw.mongodb.net/todoApp").then(() =>{
     console.log("Mongodb Connected🐦‍🔥")
 })
 
 
+// Create user schema
+
 const userSchema = new mongoose.Schema({
-    username:String,
-    password:String,
-})
+    username: String,
+    password: String,
+    firstName:String,
+    lastName:String
+});
+
 
 const accountSchema = new mongoose.Schema({
     userId:{
-        type: mongoose.Schema.Types.ObjectId, // Reference to User model
-        ref: 'User',
-        required: true
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
     },
-    balance: {
-        type: Number,
-        required: true
+    balance:{
+        type:Number,
+        required:true
     }
 })
 
-const User = mongoose.model("User",userSchema)
-const Account = mongoose.model("Account",accountSchema)
+// Modal
+
+
+const User = mongoose.model('User', userSchema);
+const Account = mongoose.model('Account', accountSchema);
 
 module.exports = {
-    User,Account
-}
+	User,
+    Account
+};
+
+
