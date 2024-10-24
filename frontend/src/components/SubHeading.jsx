@@ -1,9 +1,9 @@
 import React from 'react'
 
-const SubHeading = () => {
+const SubHeading = ({value}) => {
   return (
     <div>
-      
+      <p>{value}</p>
     </div>
   )
 }

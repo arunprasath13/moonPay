@@ -13,7 +13,6 @@ const signinbody = zod.object({
 const signupbody = zod.object({
   username: zod.string(),
   password: zod.string(),
-  lastName: zod.string(),
   firstName: zod.string(),
 });
 
